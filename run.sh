@@ -83,7 +83,8 @@ for i in \$(ls /backup/\${BACKUP_NAME}/MYSQL -N1); do
   rm -rf /backup/\${BACKUP_NAME}/MYSQL/\${i}
 done
 
-for i in \$(ls /exports/ -N1); do
+echo "Start images backup"
+for i in \$(ls /exports/ -N1 | grep IMG); do
   tar czvf /backup/\${BACKUP_NAME}/FILES/\${i}.tar.gz -C /exports \${i}
 done
 
